@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三维柱状图</title>
+    <script type="text/javascript" src="js/x3dom-full.debug.js"></script>
+    <script type="text/javascript" src="js/d3.v3.min.js"></script>
+    <script type="text/javascript" src="js/heat_map.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/x3dom.css">
+    <style type="text/css">
+        .setmargin{margin-left: 60px;}
+    </style>
+</head>
+<body>
+<div id="divHeatMap"></div>
+<div class="setmargin">
+<div style="height: auto; width: 550px;">
+    <img style="width: 60px; height: 290px; float: left;" src="color.png";>
+<div style="margin-left: 100px">
+    <div class="input-group" style="width: 346px;">
+        <span class="input-group-addon" style="width: 53px">文件名</span>
+
+        <input id="filePath" type="text" class="form-control" value="my_project.csv" placeholder="请将文件放入csv目录中" aria-describedby="sizing-addon2">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button" onclick="drawHeatMapFromCSV()">确认</button>
+        </span>
+    </div>
+<div id="butoonGruop" class="btn-group" role="group" aria-label="..."></div>
+<div class="input-group" style="width: 296px;">
+    <span class="input-group-addon" style="width: 53px">x</span>
+    <input id="xInput" type="text" class="form-control" placeholder="请输入x轴坐标" aria-describedby="sizing-addon2">
+</div>
+<div class="input-group" style="width: 296px;">
+    <span class="input-group-addon" style="width: 53px">z</span>
+    <input id="zInput" type="text" class="form-control" placeholder="请输入z轴坐标" aria-describedby="sizing-addon2">
+</div>
+<div class="input-group" style="width: 296px;">
+    <span class="input-group-addon" style="width: 53px">强度</span>
+    <input id="yInput" type="text" class="form-control" placeholder="请输入光照强度" aria-describedby="sizing-addon2">
+</div>
+<button id="confirmButton" class="btn btn-default" onclick="getInput()">确认</button>
+</div>
+</div>
+</div>
+<script>
+    d3.select('html').style('height','100%').style('width','100%');
+    d3.select('body').style('height','100%').style('width','100%');
+    d3.select('#divHeatMap').style('width', "1000px").style('height', "800px");
+    heatMap3d(d3.select('#divHeatMap'));
+</script>
+</body>
+</html>
